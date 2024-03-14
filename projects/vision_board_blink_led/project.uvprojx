@@ -16,7 +16,7 @@
         <TargetCommonOption>
           <Device>R7FA8D1BH</Device>
           <Vendor>Renesas</Vendor>
-          <PackID>Renesas.RA_DFP.5.1.0</PackID>
+          <PackID>Renesas.RA8_DFP.0.0.2</PackID>
           <PackURL>https://www2.renesas.eu/Keil_MDK_Packs/</PackURL>
           <Cpu>IRAM(0x22000000,0xE0000) IRAM2(0x0,0x10000) IROM(0x02000000,0x001F8000) XRAM(0x20000000,0x10000) CPUTYPE("Cortex-M85") FPU3(DFPU) DSP TZ MVE(FP) PACBTI CLOCK(12000000) ELITTLE</Cpu>
           <FlashUtilSpec></FlashUtilSpec>
@@ -190,7 +190,7 @@
             <hadIRAM2>1</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>8</StupSel>
-            <useUlib>0</useUlib>
+            <useUlib>1</useUlib>
             <EndSel>0</EndSel>
             <uLtcg>0</uLtcg>
             <nSecure>0</nSecure>
@@ -338,9 +338,9 @@
             <v6Rtti>0</v6Rtti>
             <VariousControls>
               <MiscControls>-Wno-license-management -Wuninitialized -Wall -Wmissing-declarations -Wpointer-arith -Waggregate-return -Wfloat-equal</MiscControls>
-              <Define>__STDC_LIMIT_MACROS, RT_USING_ARMLIBC, RT_USING_LIBC, __CLK_TCK=RT_TICK_PER_SECOND, __RTTHREAD__, BSP_CFG_RTOS = 2</Define>
+              <Define>RT_USING_LIBC, RT_USING_ARMLIBC, __STDC_LIMIT_MACROS, __RTTHREAD__, __CLK_TCK=RT_TICK_PER_SECOND</Define>
               <Undefine></Undefine>
-              <IncludePath>board\ports;libraries\HAL_Drivers;rt-thread\components\drivers\include;rt-thread\include;rt-thread\components\libc\compilers\common\extension;rt-thread\components\libc\compilers\common\include;rt-thread\components\libc\posix\io\eventfd;rt-thread\components\libc\posix\ipc;rt-thread\libcpu\arm\cortex-m85;rt-thread\libcpu\arm\common;rt-thread\components\drivers\include;rt-thread\components\libc\posix\io\epoll;rt-thread\components\libc\posix\io\poll;.;rt-thread\components\drivers\include;board;rt-thread\components\drivers\include;libraries\HAL_Drivers\config;rt-thread\components\finsh;rt-thread\components\libc\compilers\common\extension\fcntl\octal</IncludePath>
+              <IncludePath>rt-thread\components\finsh;rt-thread\components\libc\posix\io\eventfd;board\ports;rt-thread\components\drivers\include;board;packages\i2c-tools-latest\src;rt-thread\components\libc\posix\io\epoll;rt-thread\components\libc\compilers\common\extension\fcntl\octal;rt-thread\include;rt-thread\components\drivers\include;libraries\HAL_Drivers\config;rt-thread\components\libc\compilers\common\include;rt-thread\components\libc\posix\ipc;rt-thread\components\libc\posix\io\poll;packages\i2c-tools-latest;rt-thread\components\libc\cplusplus;libraries\HAL_Drivers;rt-thread\libcpu\arm\common;rt-thread\libcpu\arm\cortex-m85;rt-thread\components\drivers\include;rt-thread\components\drivers\include;board\ports\mipi_lcd;rt-thread\components\libc\compilers\common\extension;rt-thread\components\drivers\include;.\packages\MLX90640\functions;.\packages\MLX90640\headers</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -427,6 +427,21 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>CPP</GroupName>
+          <Files>
+            <File>
+              <FileName>cxx_crt.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>rt-thread\components\libc\cplusplus\cxx_crt.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>cxx_crt_init.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>rt-thread\components\libc\cplusplus\cxx_crt_init.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>CPU</GroupName>
           <Files>
             <File>
@@ -463,6 +478,21 @@
               <FileName>device.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\components\drivers\core\device.c</FilePath>
+            </File>
+            <File>
+              <FileName>i2c-bit-ops.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>rt-thread\components\drivers\i2c\i2c-bit-ops.c</FilePath>
+            </File>
+            <File>
+              <FileName>i2c_core.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>rt-thread\components\drivers\i2c\i2c_core.c</FilePath>
+            </File>
+            <File>
+              <FileName>i2c_dev.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>rt-thread\components\drivers\i2c\i2c_dev.c</FilePath>
             </File>
             <File>
               <FileName>completion.c</FileName>
@@ -505,6 +535,11 @@
               <FilePath>rt-thread\components\drivers\misc\pin.c</FilePath>
             </File>
             <File>
+              <FileName>rt_drv_pwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>rt-thread\components\drivers\misc\rt_drv_pwm.c</FilePath>
+            </File>
+            <File>
               <FileName>serial_v2.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\components\drivers\serial\serial_v2.c</FilePath>
@@ -518,6 +553,11 @@
               <FileName>drv_sdram.c</FileName>
               <FileType>1</FileType>
               <FilePath>board\ports\drv_sdram.c</FilePath>
+            </File>
+            <File>
+              <FileName>mipi_config.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\mipi_lcd\mipi_config.c</FilePath>
             </File>
             <File>
               <FileName>mnt.c</FileName>
@@ -538,6 +578,21 @@
               <FileName>drv_gpio.c</FileName>
               <FileType>1</FileType>
               <FilePath>libraries\HAL_Drivers\drv_gpio.c</FilePath>
+            </File>
+            <File>
+              <FileName>drv_lcd.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>libraries\HAL_Drivers\drv_lcd.c</FilePath>
+            </File>
+            <File>
+              <FileName>drv_pwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>libraries\HAL_Drivers\drv_pwm.c</FilePath>
+            </File>
+            <File>
+              <FileName>drv_sci.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>libraries\HAL_Drivers\drv_sci.c</FilePath>
             </File>
             <File>
               <FileName>drv_usart_v2.c</FileName>
@@ -568,6 +623,21 @@
               <FileName>cmd.c</FileName>
               <FileType>1</FileType>
               <FilePath>rt-thread\components\finsh\cmd.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>i2c-tools</GroupName>
+          <Files>
+            <File>
+              <FileName>i2c_tools.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>packages\i2c-tools-latest\src\i2c_tools.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>i2c_utils.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>packages\i2c-tools-latest\src\i2c_utils.cpp</FilePath>
             </File>
           </Files>
         </Group>
@@ -647,6 +717,41 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>MLX90640</GroupName>
+          <Files>
+            <File>
+              <FileName>MLX90640_I2C_Driver.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\packages\MLX90640\headers\MLX90640_I2C_Driver.h</FilePath>
+            </File>
+            <File>
+              <FileName>MLX90640_API.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\packages\MLX90640\headers\MLX90640_API.h</FilePath>
+            </File>
+            <File>
+              <FileName>MLX90640_API.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\packages\MLX90640\functions\MLX90640_API.c</FilePath>
+            </File>
+            <File>
+              <FileName>MLX90640_DISPLAY.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\MLX90640_DISPLAY.c</FilePath>
+            </File>
+            <File>
+              <FileName>MLX90640_DISPLAY.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\MLX90640_DISPLAY.h</FilePath>
+            </File>
+            <File>
+              <FileName>font.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\font.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>::Flex Software</GroupName>
         </Group>
       </Groups>
@@ -664,7 +769,7 @@
     <apis/>
     <components>
       <component Cclass="Flex Software" Cgroup="RA Configuration" Cvendor="Renesas" Cversion="1.0.0" condition="RA Device" generator="Renesas RA Smart Configurator">
-        <package name="RA_DFP" schemaVersion="1.7.2" url="https://www2.renesas.eu/Keil_MDK_Packs/" vendor="Renesas" version="5.1.0"/>
+        <package name="RA8_DFP" schemaVersion="1.7.2" url="https://www2.renesas.eu/Keil_MDK_Packs/" vendor="Renesas" version="0.0.2"/>
         <targetInfos>
           <targetInfo name="Target 1"/>
         </targetInfos>
@@ -672,5 +777,14 @@
     </components>
     <files/>
   </RTE>
+
+  <LayerInfo>
+    <Layers>
+      <Layer>
+        <LayName>project</LayName>
+        <LayPrjMark>1</LayPrjMark>
+      </Layer>
+    </Layers>
+  </LayerInfo>
 
 </Project>

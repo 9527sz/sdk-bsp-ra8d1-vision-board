@@ -27,8 +27,6 @@
         <peripheral name="PORT2" group="PORT">
             <slot name="P206" secure="true"/>
             <slot name="P207" secure="true"/>
-            <slot name="P208" secure="true"/>
-            <slot name="P209" secure="true"/>
             <slot name="P210" secure="true"/>
             <slot name="P211" secure="true"/>
         </peripheral>
@@ -98,6 +96,8 @@
             <slot name="P715" secure="true"/>
         </peripheral>
         <peripheral name="PORT8" group="PORT">
+            <slot name="P801" secure="true"/>
+            <slot name="P802" secure="true"/>
             <slot name="P803" secure="true"/>
             <slot name="P805" secure="true"/>
             <slot name="P806" secure="true"/>
@@ -127,13 +127,14 @@
         </peripheral>
         <peripheral name="PORTA" group="PORT">
             <slot name="PA00" secure="true"/>
-            <slot name="PA02" secure="true"/>
             <slot name="PA03" secure="true"/>
             <slot name="PA08" secure="true"/>
             <slot name="PA09" secure="true"/>
             <slot name="PA10" secure="true"/>
             <slot name="PA11" secure="true"/>
             <slot name="PA13" secure="true"/>
+            <slot name="PA14" secure="true"/>
+            <slot name="PA15" secure="true"/>
         </peripheral>
         <peripheral name="PORTB" group="PORT">
             <slot name="PB01" secure="true"/>
@@ -141,11 +142,23 @@
             <slot name="PB06" secure="true"/>
             <slot name="PB07" secure="true"/>
         </peripheral>
+        <peripheral name="GLCDC" security=""/>
+        <peripheral name="GPT6" group="GPT" security=""/>
         <peripheral name="ICU">
             <slot name="IRQ0" secure="true"/>
             <slot name="IRQ1" secure="true"/>
             <slot name="IRQ2" secure="true"/>
             <slot name="IRQ3" secure="true"/>
+            <slot name="IRQ4" secure="true"/>
+            <slot name="IRQ5" secure="true"/>
+            <slot name="IRQ6" secure="true"/>
+            <slot name="IRQ7" secure="true"/>
+            <slot name="IRQ8" secure="true"/>
+            <slot name="IRQ9" secure="true"/>
+            <slot name="IRQ10" secure="true"/>
+            <slot name="IRQ11" secure="true"/>
+            <slot name="IRQ12" secure="true"/>
+            <slot name="IRQ13" secure="true"/>
         </peripheral>
     </partition>
 </azone>

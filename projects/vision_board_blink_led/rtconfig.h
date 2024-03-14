@@ -49,7 +49,7 @@
 #define RT_USING_DEVICE
 #define RT_USING_CONSOLE
 #define RT_CONSOLEBUF_SIZE 128
-#define RT_CONSOLE_DEVICE_NAME "uart9"
+#define RT_CONSOLE_DEVICE_NAME "uart2"
 #define RT_VER_NUM 0x50002
 #define RT_USING_HW_ATOMIC
 #define RT_USING_CPU_FFS
@@ -61,7 +61,7 @@
 
 #define RT_USING_COMPONENTS_INIT
 #define RT_USING_USER_MAIN
-#define RT_MAIN_THREAD_STACK_SIZE 2048
+#define RT_MAIN_THREAD_STACK_SIZE 8192
 #define RT_MAIN_THREAD_PRIORITY 10
 #define RT_USING_MSH
 #define RT_USING_FINSH
@@ -88,7 +88,10 @@
 #define RT_USING_SERIAL
 #define RT_USING_SERIAL_V2
 #define RT_SERIAL_USING_DMA
+#define RT_USING_I2C
+#define RT_USING_I2C_BITOPS
 #define RT_USING_PIN
+#define RT_USING_PWM
 
 /* Using USB */
 
@@ -112,6 +115,7 @@
 
 /* Socket is in the 'Network' category */
 
+#define RT_USING_CPLUSPLUS
 
 /* Network */
 
@@ -133,6 +137,15 @@
 
 
 /* Wiced WiFi */
+
+
+/* CYW43012 WiFi */
+
+
+/* BL808 WiFi */
+
+
+/* CYW43439 WiFi */
 
 
 /* IoT Cloud */
@@ -173,6 +186,8 @@
 
 /* Micrium: Micrium software products porting for RT-Thread */
 
+#define PKG_USING_PERF_COUNTER
+#define PKG_USING_PERF_COUNTER_V2241
 
 /* peripheral libraries and drivers */
 
@@ -184,6 +199,8 @@
 
 /* Kendryte SDK */
 
+#define PKG_USING_I2C_TOOLS
+#define PKG_USING_I2C_TOOLS_LATEST_VERSION
 
 /* AI packages */
 
@@ -203,12 +220,21 @@
 
 /* Arduino libraries */
 
+#define PKG_USING_RTDUINO
+#define RTDUINO_THREAD_SIZE 2048
+#define RTDUINO_THREAD_PRIO 30
+#define RTDUINO_SUPPORT_HIGH_PRECISION_MICROS
+#define RTDUINO_USING_WIRE
+#define RTDUINO_WIRE_BUFFER_LENGTH 32
+#define PKG_USING_RTDUINO_LATEST_VERSION
 
 /* Projects and Demos */
 
 
 /* Sensors */
 
+#define PKG_USING_ARDUINO_ADAFRUIT_MLX90640
+#define PKG_USING_ARDUINO_ADAFRUIT_MLX90640_LATEST_VERSION
 
 /* Display */
 
@@ -232,6 +258,8 @@
 
 /* Signal IO */
 
+#define PKG_USING_ARDUINO_ADAFRUIT_BUSIO
+#define PKG_USING_ARDUINO_ADAFRUIT_BUSIO_LATEST_VERSION
 
 /* Uncategorized */
 
@@ -246,9 +274,17 @@
 
 #define BSP_USING_GPIO
 #define BSP_USING_UART
-#define BSP_USING_UART9
-#define BSP_UART9_RX_BUFSIZE 256
-#define BSP_UART9_TX_BUFSIZE 0
+#define BSP_USING_UART2
+#define BSP_UART2_RX_BUFSIZE 256
+#define BSP_UART2_TX_BUFSIZE 0
+#define BSP_USING_SCI
+#define BSP_USING_SCIn_I2C
+#define BSP_USING_SCI9
+#define BSP_USING_SCI9_I2C
+#define BSP_USING_PWM
+#define BSP_USING_PWM6
+#define BSP_USING_LCD
+#define BSP_USING_MIPI_LCD
 #define BSP_USING_SDRAM
 #define BSP_USING_SDRAM_SIZE 0x2000000
 
