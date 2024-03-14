@@ -385,7 +385,7 @@
 
   <Group>
     <GroupName>DeviceDrivers</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -561,7 +561,7 @@
 
   <Group>
     <GroupName>Drivers</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -929,7 +929,7 @@
 
   <Group>
     <GroupName>:Renesas RA Smart Configurator:Common Sources</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -996,7 +996,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\MLX90640_DISPLAY.c</PathWithFileName>
+      <PathWithFileName>.\packages\MLX90640\functions\MLX90640_DISPLAY.c</PathWithFileName>
       <FilenameWithoutPath>MLX90640_DISPLAY.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -1008,8 +1008,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\MLX90640_DISPLAY.h</PathWithFileName>
-      <FilenameWithoutPath>MLX90640_DISPLAY.h</FilenameWithoutPath>
+      <PathWithFileName>.\packages\MLX90640\headers\font.h</PathWithFileName>
+      <FilenameWithoutPath>font.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -1020,8 +1020,20 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>.\font.h</PathWithFileName>
-      <FilenameWithoutPath>font.h</FilenameWithoutPath>
+      <PathWithFileName>.\packages\MLX90640\headers\MLX90640_DISPLAY.h</PathWithFileName>
+      <FilenameWithoutPath>MLX90640_DISPLAY.h</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>10</GroupNumber>
+      <FileNumber>65</FileNumber>
+      <FileType>5</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\packages\MLX90640\headers\mlx90640.h</PathWithFileName>
+      <FilenameWithoutPath>mlx90640.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

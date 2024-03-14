@@ -104,7 +104,7 @@ void find_min_temperature(float src_matrix[SRC_HEIGHT][SRC_WIDTH], float dest_ma
         {
             if(src_matrix[row][col] < min_temperature)
             {
-				min_temperature = src_matrix[row][col];
+                min_temperature = src_matrix[row][col];
                 min_row = row;
                 min_col = col;
             }
@@ -133,8 +133,6 @@ uint16_t calculate_color(float temperature)
     return (red & 0xF800) | ((green & 0x07E0) << 5) | (blue & 0x001F);
 }
 
-
-
 #define THREAD_PRIORITY         25
 #define THREAD_STACK_SIZE       16384
 #define THREAD_TIMESLICE        5
@@ -142,7 +140,7 @@ static rt_thread_t tid1 = RT_NULL;
 static void thread1_entry(void* parameter)
 {
     int max_dest_row, max_dest_col;
-	int min_dest_row, min_dest_col;
+    int min_dest_row, min_dest_col;
     struct drv_lcd_device* lcd;
     struct rt_device_rect_info rect_info;
     rect_info.x = 0;
@@ -162,9 +160,6 @@ static void thread1_entry(void* parameter)
     lcd->parent.control(&lcd->parent, RTGRAPHIC_CTRL_RECT_UPDATE, &rect_info);
     rt_thread_mdelay(1000);
 
-
-
-
     uint16_t color = 0xF800; // 16-bit RGB565 color (e.g., red)
 
     lcd_gpu_fill_array(0, 0, 240, 180, &color);
@@ -180,12 +175,9 @@ static void thread1_entry(void* parameter)
         float Ta = MLX90640_GetTa(frame, &mlx90640);    //计算实时外壳温度
         float tr = Ta - TA_SHIFT; //Reflected temperature based on the sensor ambient temperature
 
-
-
         MLX90640_CalculateTo(frame, &mlx90640, emissivity , tr, mlx90640To);            //计算像素点温度
         MLX90640_BadPixelsCorrection(mlx90640.brokenPixels, mlx90640To, 1, &mlx90640);  //坏点处理
         MLX90640_BadPixelsCorrection(mlx90640.outlierPixels, mlx90640To, 1, &mlx90640); //坏点处理
-
 
 //    rt_kprintf("\r\n==========================I==========================\r\n");
 //    for(int i = 0; i < 768; i++)
@@ -197,8 +189,7 @@ static void thread1_entry(void* parameter)
 //        printf("%2.0f   ", mlx90640To[i]);
 //    }
 //    rt_kprintf("\r\n==========================I==========================\r\n");
-
-
+		
 //一维数组转换为二维数组
         int index = 0;
         for(int i = 0; i < 24; i++)
@@ -211,7 +202,7 @@ static void thread1_entry(void* parameter)
         bilinear_interpolation(src_matrix, dest_matrix);
 
         find_max_temperature(src_matrix, dest_matrix, &max_dest_row, &max_dest_col);
-		find_min_temperature(src_matrix, dest_matrix, &min_dest_row, &min_dest_col);
+        find_min_temperature(src_matrix, dest_matrix, &min_dest_row, &min_dest_col);
 
         rt_thread_mdelay(5);
 
@@ -226,8 +217,6 @@ static void thread1_entry(void* parameter)
                 lcd_draw_pixel(col + 80,  row + 60, color);
             }
         }
-
-
         if(max_dest_row > 5 && max_dest_row < 235 && max_dest_col > 5 && max_dest_col < 315)
         {
             for(int cross_row = max_dest_row - 5; cross_row < max_dest_row + 5; cross_row++)
@@ -253,8 +242,8 @@ static void thread1_entry(void* parameter)
         LCD_ShowString(30, 315, "MAX_temperature:", BLACK, BLACK, 32, 1);
         LCD_ShowFloatNum1(325, 320, max_temperature, 2, BLACK, BLACK, 24);
         LCD_ShowIntNum(300, 320, max_temperature, 2, BLACK, BLACK, 24);
-		
-		LCD_ShowString(30, 0, "MIN_temperature:", BLACK, BLACK, 32, 1);
+
+        LCD_ShowString(30, 0, "MIN_temperature:", BLACK, BLACK, 32, 1);
         LCD_ShowFloatNum1(325, 5, min_temperature, 2, BLACK, BLACK, 24);
         LCD_ShowIntNum(300, 5, min_temperature, 2, BLACK, BLACK, 24);
     }
@@ -379,7 +368,7 @@ void LCD_ShowFloatNum1(uint16_t x, uint16_t y, float num, uint8_t len, uint16_t 
         temp = (num1 / mypow(10, len - t - 1)) % 10;
         if(t == (len - 2))
         {
-            for(int col = x-40; col < x + 45; col++)
+            for(int col = x - 40; col < x + 45; col++)
             {
                 for(int row = y + 25; row > y; row--)
                 {
@@ -422,7 +411,6 @@ void LCD_ShowIntNum(uint16_t x, uint16_t y, float num, uint8_t len, uint16_t fc,
                 continue;
             }
             else enshow = 1;
-
         }
         LCD_ShowChar(x + t * sizex, y, temp + 48, fc, bc, sizey, 1);
     }

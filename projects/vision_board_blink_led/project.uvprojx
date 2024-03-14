@@ -737,17 +737,22 @@
             <File>
               <FileName>MLX90640_DISPLAY.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\MLX90640_DISPLAY.c</FilePath>
-            </File>
-            <File>
-              <FileName>MLX90640_DISPLAY.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\MLX90640_DISPLAY.h</FilePath>
+              <FilePath>.\packages\MLX90640\functions\MLX90640_DISPLAY.c</FilePath>
             </File>
             <File>
               <FileName>font.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\font.h</FilePath>
+              <FilePath>.\packages\MLX90640\headers\font.h</FilePath>
+            </File>
+            <File>
+              <FileName>MLX90640_DISPLAY.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\packages\MLX90640\headers\MLX90640_DISPLAY.h</FilePath>
+            </File>
+            <File>
+              <FileName>mlx90640.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\packages\MLX90640\headers\mlx90640.h</FilePath>
             </File>
           </Files>
         </Group>
