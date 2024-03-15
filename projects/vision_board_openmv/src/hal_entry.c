@@ -35,6 +35,7 @@
     #include <tusb.h>
     #include <led.h>
     #include <mpy_main.h>
+	#include <scc8660.h>
 #endif /* BSP_USING_OPENMV */
 #ifdef RT_USING_FAL
     #include "fal.h"
@@ -144,11 +145,12 @@ soft_reset:
 
     readline_init0();
     imlib_init_all();
-
+	
     usb_cdc_init();
     usbdbg_init();
     file_buffer_init0();
     sensor_init0();
+	scc8660_set_hmirror(0);
 
 #if MICROPY_PY_SENSOR
     if (sensor_init() != 0 && first_soft_reset)

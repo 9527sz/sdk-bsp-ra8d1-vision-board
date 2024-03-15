@@ -30,6 +30,7 @@
 #include "frogeye2020.h"
 #include "gc2145.h"
 #include "gc0328.h"
+#include "scc8660.h"
 #include "framebuffer.h"
 #include "omv_boardconfig.h"
 #include "omv_gpio.h"
@@ -182,6 +183,11 @@ static int sensor_detect() {
                 omv_i2c_readb(&sensor.i2c_bus, slv_addr, OV_CHIP_ID, &sensor.chip_id);
                 return slv_addr;
             #endif // (OMV_ENABLE_OV2640 == 1)
+			 #if (OMV_ENABLE_SCC8660 == 1)
+            case SCC8660_SLV_ADDR: // 
+                omv_i2c_readb2(&sensor.i2c_bus, slv_addr, SCC8660_CHIP_ID, &sensor.chip_id);
+                return slv_addr;
+            #endif // (OMV_ENABLE_OV2640 == 1)
 
             #if (OMV_ENABLE_OV5640 == 1)
             case OV5640_SLV_ADDR:
@@ -317,7 +323,7 @@ int sensor_probe_init(uint32_t bus_id, uint32_t bus_speed) {
             }
         }
     }
-
+	sensor.chip_id_w = SCC8660_ID;
     // A supported sensor was detected, try to initialize it.
     switch (sensor.chip_id_w) {
         #if (OMV_ENABLE_OV2640 == 1)
@@ -461,6 +467,13 @@ int sensor_probe_init(uint32_t bus_id, uint32_t bus_speed) {
             init_ret = gc0328_init(&sensor);
             break;
         #endif // (OMV_ENABLE_GC0328 == 1)
+			 #if (OMV_ENABLE_SCC8660 == 1)
+        case SCC8660_ID:
+			rt_kprintf("lingtong init is ok\n");
+            init_ret = SCC8660_init(&sensor);
+            break;
+        #endif 
+
 
         default:
             return SENSOR_ERROR_ISC_UNSUPPORTED;
