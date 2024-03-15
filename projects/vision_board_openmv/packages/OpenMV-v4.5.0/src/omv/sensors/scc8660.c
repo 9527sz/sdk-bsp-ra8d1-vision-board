@@ -47,34 +47,25 @@ int write_reg(sensor_t* sensor, uint16_t reg_addr, uint16_t reg_data)
 static int set_framesize(sensor_t* sensor, framesize_t framesize)
 {
     int ret = 0;
-
-    uint16_t w = resolution[framesize][0];
-    uint16_t h = resolution[framesize][1];
-
-    if((w > 320) || (h > 240))
-    {
-        return -1;
-    }
-
     switch(framesize)
     {
     case FRAMESIZE_VGA:
+		ret =scc8660_set_framesize(1);
         break;
     case FRAMESIZE_QVGA:
-        scc8660_set_framesize(2);
+        ret =scc8660_set_framesize(2);
         break;
     case FRAMESIZE_HQVGA:
-        scc8660_set_framesize(3);
+        ret =scc8660_set_framesize(3);
         break;
     case FRAMESIZE_QQVGA:
-        scc8660_set_framesize(4);
+        ret =scc8660_set_framesize(4);
         break;
     default:
-        return -1;
+        ret=-1;
+		break;
     }
-    scc8660_set_framesize(framesize);
     return ret;
-    return 0;
 }
 static int set_brightness(sensor_t* sensor, int level)
 {
