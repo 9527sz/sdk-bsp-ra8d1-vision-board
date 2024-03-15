@@ -728,5 +728,9 @@ menuconfig BSP_USING_OPENMV
         config SENSOR_GC0328
             int "Sensor support GC0328"
             range 0 1
-            default 1            
+            default 1          
+        config SENSOR_SCC8660
+            int "Sensor support SCC8660"
+            range 0 1
+            default 1       
     endif

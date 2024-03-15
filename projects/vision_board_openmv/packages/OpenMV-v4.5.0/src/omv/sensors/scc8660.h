@@ -1,11 +1,10 @@
 #ifndef _scc8660_h_
 #define _scc8660_h_
-
 #include "sensor.h"
 // 定义凌瞳在复位时的延时时间，内部软延时（480M主频时 单位约为1ms）
 #define SCC8660_RESET_DELAY 50
-int SCC8660_init(sensor_t *sensor);
 
+int SCC8660_init(sensor_t *sensor);
 extern void scc8660_iic_write(unsigned char addr, unsigned char reg, unsigned char data);
 extern void scc8660_iic_read(unsigned char addr, unsigned char reg, unsigned char *data);
 

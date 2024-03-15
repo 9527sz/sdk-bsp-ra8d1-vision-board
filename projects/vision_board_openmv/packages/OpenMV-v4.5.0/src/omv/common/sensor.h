@@ -60,7 +60,7 @@
 #define PAJ6100_ID              (0x6100)
 #define FROGEYE2020_ID          (0x2020)
 #define GC0328_ID               (0x9d)
-#define SCC8660_ID             (0x8660)
+#define SCC8660_ID             	(0x21D4)
 typedef enum {
     FRAMESIZE_INVALID = 0,
     // C/SIF Resolutions
