@@ -150,7 +150,7 @@ soft_reset:
     usbdbg_init();
     file_buffer_init0();
     sensor_init0();
-    scc8660_set_hmirror(0);
+
 
 #if MICROPY_PY_SENSOR
     if(sensor_init() != 0 && first_soft_reset)
